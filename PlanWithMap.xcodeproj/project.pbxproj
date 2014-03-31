@@ -7,22 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB149CED18BC47BD00538F68 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB43970618B4A7C60053205D /* Main_iPhone.storyboard */; };
 		CB4396F518B4A7C60053205D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4396F418B4A7C60053205D /* Foundation.framework */; };
 		CB4396F718B4A7C60053205D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4396F618B4A7C60053205D /* CoreGraphics.framework */; };
 		CB4396F918B4A7C60053205D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4396F818B4A7C60053205D /* UIKit.framework */; };
 		CB4396FF18B4A7C60053205D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB4396FD18B4A7C60053205D /* InfoPlist.strings */; };
 		CB43970118B4A7C60053205D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43970018B4A7C60053205D /* main.m */; };
 		CB43970518B4A7C60053205D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43970418B4A7C60053205D /* AppDelegate.m */; };
-		CB43970818B4A7C60053205D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB43970618B4A7C60053205D /* Main_iPhone.storyboard */; };
-		CB43970B18B4A7C60053205D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB43970918B4A7C60053205D /* Main_iPad.storyboard */; };
-		CB43970E18B4A7C60053205D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43970D18B4A7C60053205D /* FirstViewController.m */; };
-		CB43971118B4A7C60053205D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43971018B4A7C60053205D /* SecondViewController.m */; };
+		CB43970E18B4A7C60053205D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43970D18B4A7C60053205D /* MapViewController.m */; };
 		CB43971318B4A7C70053205D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB43971218B4A7C70053205D /* Images.xcassets */; };
 		CB43971A18B4A7C70053205D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB43971918B4A7C70053205D /* XCTest.framework */; };
 		CB43971B18B4A7C70053205D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4396F418B4A7C60053205D /* Foundation.framework */; };
 		CB43971C18B4A7C70053205D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4396F818B4A7C60053205D /* UIKit.framework */; };
 		CB43972418B4A7C70053205D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB43972218B4A7C70053205D /* InfoPlist.strings */; };
 		CB43972618B4A7C70053205D /* PlanWithMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43972518B4A7C70053205D /* PlanWithMapTests.m */; };
+		CB43973018B4A8090053205D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB43972F18B4A8090053205D /* MapKit.framework */; };
+		CB43973218B4A8160053205D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB43973118B4A8160053205D /* CoreLocation.framework */; };
+		CB43973518B4BFA20053205D /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43973418B4BFA20053205D /* myAnnotation.m */; };
+		CB43973818B4BFE10053205D /* myPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43973718B4BFE10053205D /* myPinAnnotationView.m */; };
+		CB43976418B5C4D00053205D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB43976318B5C4D00053205D /* DetailViewController.m */; };
+		CB4C96B318E932D8006B4478 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4C96B218E932D8006B4478 /* CalendarViewController.m */; };
+		CB4C96B618E9349C006B4478 /* myCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4C96B518E9349C006B4478 /* myCalendarDayView.m */; };
+		CB4C96C118E93920006B4478 /* airport_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96B718E93920006B4478 /* airport_icon.jpg */; };
+		CB4C96C218E93920006B4478 /* bus_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96B818E93920006B4478 /* bus_icon.jpg */; };
+		CB4C96C318E93920006B4478 /* restaurant_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96B918E93920006B4478 /* restaurant_icon.jpg */; };
+		CB4C96C418E93920006B4478 /* shop_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BA18E93920006B4478 /* shop_icon.jpg */; };
+		CB4C96C518E93920006B4478 /* sight_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BB18E93920006B4478 /* sight_icon.jpg */; };
+		CB4C96C618E93920006B4478 /* stay_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BC18E93920006B4478 /* stay_icon.jpg */; };
+		CB4C96C718E93920006B4478 /* sun-red-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BD18E93920006B4478 /* sun-red-circle.png */; };
+		CB4C96C818E93920006B4478 /* TacoMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BE18E93920006B4478 /* TacoMarker.png */; };
+		CB4C96C918E93920006B4478 /* train_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96BF18E93920006B4478 /* train_icon.jpg */; };
+		CB4C96CA18E93920006B4478 /* userLocation_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96C018E93920006B4478 /* userLocation_icon.png */; };
+		CB4C96D418E93A46006B4478 /* calendar-25.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96CB18E93A46006B4478 /* calendar-25.png */; };
+		CB4C96D518E93A46006B4478 /* map_marker-25.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96CC18E93A46006B4478 /* map_marker-25.png */; };
+		CB4C96D618E93A46006B4478 /* picture-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96CD18E93A46006B4478 /* picture-50.png */; };
+		CB4C96D718E93A46006B4478 /* pin_blue_icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96CE18E93A46006B4478 /* pin_blue_icon.ico */; };
+		CB4C96D818E93A46006B4478 /* pin_blue.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96CF18E93A46006B4478 /* pin_blue.ico */; };
+		CB4C96D918E93A46006B4478 /* pin_green.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96D018E93A46006B4478 /* pin_green.ico */; };
+		CB4C96DA18E93A46006B4478 /* pin_orange.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96D118E93A46006B4478 /* pin_orange.ico */; };
+		CB4C96DB18E93A46006B4478 /* pin_purple.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96D218E93A46006B4478 /* pin_purple.ico */; };
+		CB4C96DC18E93A46006B4478 /* pin_red.ico in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96D318E93A46006B4478 /* pin_red.ico */; };
+		CB4C96E018E93B65006B4478 /* nextMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96DE18E93B65006B4478 /* nextMonth.png */; };
+		CB4C96E118E93B65006B4478 /* previousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4C96DF18E93B65006B4478 /* previousMonth.png */; };
+		CB51639118B909A5005972DA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB51639018B909A5005972DA /* Accelerate.framework */; };
+		CB51639318B909B3005972DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB51639218B909B3005972DA /* MobileCoreServices.framework */; };
+		CB779D4718BCE4D800ED89BF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB779D4618BCE4D800ED89BF /* libsqlite3.dylib */; };
+		CB779D8A18BCECE300ED89BF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB779D8918BCECE300ED89BF /* CoreData.framework */; };
+		CB914ED918E940EF00D3F91E /* AnnotationList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB914ED618E940EF00D3F91E /* AnnotationList.xcdatamodeld */; };
+		CB914EDB18E9422E00D3F91E /* AnnotationData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB914EDA18E9422E00D3F91E /* AnnotationData.m */; };
+		CB914EDD18E9424000D3F91E /* LocationImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB914EDC18E9424000D3F91E /* LocationImageData.m */; };
+		CBD36ADA18CF78E400611E49 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD36AD918CF78E400611E49 /* PhotoViewController.m */; };
+		CBE6C62818C5A5F100984AE7 /* PinAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C62718C5A5F100984AE7 /* PinAlbumCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +83,61 @@
 		CB43970418B4A7C60053205D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CB43970718B4A7C60053205D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		CB43970A18B4A7C60053205D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		CB43970C18B4A7C60053205D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CB43970D18B4A7C60053205D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		CB43970F18B4A7C60053205D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CB43971018B4A7C60053205D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		CB43970C18B4A7C60053205D /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		CB43970D18B4A7C60053205D /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		CB43971218B4A7C70053205D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB43971818B4A7C70053205D /* PlanWithMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanWithMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB43971918B4A7C70053205D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CB43972118B4A7C70053205D /* PlanWithMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanWithMapTests-Info.plist"; sourceTree = "<group>"; };
 		CB43972318B4A7C70053205D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB43972518B4A7C70053205D /* PlanWithMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanWithMapTests.m; sourceTree = "<group>"; };
+		CB43972F18B4A8090053205D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CB43973118B4A8160053205D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CB43973318B4BFA20053205D /* myAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myAnnotation.h; path = PlanWithMap/Source/myAnnotation.h; sourceTree = "<group>"; };
+		CB43973418B4BFA20053205D /* myAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myAnnotation.m; path = PlanWithMap/Source/myAnnotation.m; sourceTree = "<group>"; };
+		CB43973618B4BFE10053205D /* myPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myPinAnnotationView.h; path = PlanWithMap/Source/myPinAnnotationView.h; sourceTree = "<group>"; };
+		CB43973718B4BFE10053205D /* myPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myPinAnnotationView.m; path = PlanWithMap/Source/myPinAnnotationView.m; sourceTree = "<group>"; };
+		CB43976218B5C4D00053205D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		CB43976318B5C4D00053205D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		CB46780A18D4AA140097BD33 /* AnnotationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationData.h; path = PlanWithMap/Source/CoreData/AnnotationData.h; sourceTree = "<group>"; };
+		CB46780D18D4AA150097BD33 /* LocationImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationImageData.h; path = PlanWithMap/Source/CoreData/LocationImageData.h; sourceTree = "<group>"; };
+		CB4C96B118E932D8006B4478 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		CB4C96B218E932D8006B4478 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		CB4C96B418E9349C006B4478 /* myCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myCalendarDayView.h; path = PlanWithMap/Source/myCalendarDayView.h; sourceTree = "<group>"; };
+		CB4C96B518E9349C006B4478 /* myCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myCalendarDayView.m; path = PlanWithMap/Source/myCalendarDayView.m; sourceTree = "<group>"; };
+		CB4C96B718E93920006B4478 /* airport_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = airport_icon.jpg; path = image/airport_icon.jpg; sourceTree = "<group>"; };
+		CB4C96B818E93920006B4478 /* bus_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bus_icon.jpg; path = image/bus_icon.jpg; sourceTree = "<group>"; };
+		CB4C96B918E93920006B4478 /* restaurant_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = restaurant_icon.jpg; path = image/restaurant_icon.jpg; sourceTree = "<group>"; };
+		CB4C96BA18E93920006B4478 /* shop_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shop_icon.jpg; path = image/shop_icon.jpg; sourceTree = "<group>"; };
+		CB4C96BB18E93920006B4478 /* sight_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sight_icon.jpg; path = image/sight_icon.jpg; sourceTree = "<group>"; };
+		CB4C96BC18E93920006B4478 /* stay_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = stay_icon.jpg; path = image/stay_icon.jpg; sourceTree = "<group>"; };
+		CB4C96BD18E93920006B4478 /* sun-red-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sun-red-circle.png"; path = "image/sun-red-circle.png"; sourceTree = "<group>"; };
+		CB4C96BE18E93920006B4478 /* TacoMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TacoMarker.png; path = image/TacoMarker.png; sourceTree = "<group>"; };
+		CB4C96BF18E93920006B4478 /* train_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = train_icon.jpg; path = image/train_icon.jpg; sourceTree = "<group>"; };
+		CB4C96C018E93920006B4478 /* userLocation_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = userLocation_icon.png; path = image/userLocation_icon.png; sourceTree = "<group>"; };
+		CB4C96CB18E93A46006B4478 /* calendar-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-25.png"; path = "image/calendar-25.png"; sourceTree = "<group>"; };
+		CB4C96CC18E93A46006B4478 /* map_marker-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_marker-25.png"; path = "image/map_marker-25.png"; sourceTree = "<group>"; };
+		CB4C96CD18E93A46006B4478 /* picture-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "picture-50.png"; path = "image/picture-50.png"; sourceTree = "<group>"; };
+		CB4C96CE18E93A46006B4478 /* pin_blue_icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_blue_icon.ico; path = image/pin_blue_icon.ico; sourceTree = "<group>"; };
+		CB4C96CF18E93A46006B4478 /* pin_blue.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_blue.ico; path = image/pin_blue.ico; sourceTree = "<group>"; };
+		CB4C96D018E93A46006B4478 /* pin_green.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_green.ico; path = image/pin_green.ico; sourceTree = "<group>"; };
+		CB4C96D118E93A46006B4478 /* pin_orange.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_orange.ico; path = image/pin_orange.ico; sourceTree = "<group>"; };
+		CB4C96D218E93A46006B4478 /* pin_purple.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_purple.ico; path = image/pin_purple.ico; sourceTree = "<group>"; };
+		CB4C96D318E93A46006B4478 /* pin_red.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = pin_red.ico; path = image/pin_red.ico; sourceTree = "<group>"; };
+		CB4C96DE18E93B65006B4478 /* nextMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nextMonth.png; path = image/nextMonth.png; sourceTree = "<group>"; };
+		CB4C96DF18E93B65006B4478 /* previousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previousMonth.png; path = image/previousMonth.png; sourceTree = "<group>"; };
+		CB51639018B909A5005972DA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		CB51639218B909B3005972DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CB779D4618BCE4D800ED89BF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CB779D8918BCECE300ED89BF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CB914ED718E940EF00D3F91E /* AnnotationList 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AnnotationList 2.xcdatamodel"; sourceTree = "<group>"; };
+		CB914ED818E940EF00D3F91E /* AnnotationList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnnotationList.xcdatamodel; sourceTree = "<group>"; };
+		CB914EDA18E9422E00D3F91E /* AnnotationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationData.m; path = PlanWithMap/Source/CoreData/AnnotationData.m; sourceTree = "<group>"; };
+		CB914EDC18E9424000D3F91E /* LocationImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationImageData.m; path = PlanWithMap/Source/CoreData/LocationImageData.m; sourceTree = "<group>"; };
+		CBD36AD818CF78E400611E49 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		CBD36AD918CF78E400611E49 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		CBE6C62618C5A5F100984AE7 /* PinAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinAlbumCell.h; path = PlanWithMap/Source/PinAlbumCell.h; sourceTree = "<group>"; };
+		CBE6C62718C5A5F100984AE7 /* PinAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinAlbumCell.m; path = PlanWithMap/Source/PinAlbumCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +145,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB779D8A18BCECE300ED89BF /* CoreData.framework in Frameworks */,
+				CB779D4718BCE4D800ED89BF /* libsqlite3.dylib in Frameworks */,
+				CB51639318B909B3005972DA /* MobileCoreServices.framework in Frameworks */,
+				CB51639118B909A5005972DA /* Accelerate.framework in Frameworks */,
+				CB43973218B4A8160053205D /* CoreLocation.framework in Frameworks */,
+				CB43973018B4A8090053205D /* MapKit.framework in Frameworks */,
 				CB4396F718B4A7C60053205D /* CoreGraphics.framework in Frameworks */,
 				CB4396F918B4A7C60053205D /* UIKit.framework in Frameworks */,
 				CB4396F518B4A7C60053205D /* Foundation.framework in Frameworks */,
@@ -106,6 +192,12 @@
 		CB4396F318B4A7C60053205D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB779D8918BCECE300ED89BF /* CoreData.framework */,
+				CB779D4618BCE4D800ED89BF /* libsqlite3.dylib */,
+				CB51639218B909B3005972DA /* MobileCoreServices.framework */,
+				CB51639018B909A5005972DA /* Accelerate.framework */,
+				CB43973118B4A8160053205D /* CoreLocation.framework */,
+				CB43972F18B4A8090053205D /* MapKit.framework */,
 				CB4396F418B4A7C60053205D /* Foundation.framework */,
 				CB4396F618B4A7C60053205D /* CoreGraphics.framework */,
 				CB4396F818B4A7C60053205D /* UIKit.framework */,
@@ -121,11 +213,16 @@
 				CB43970418B4A7C60053205D /* AppDelegate.m */,
 				CB43970618B4A7C60053205D /* Main_iPhone.storyboard */,
 				CB43970918B4A7C60053205D /* Main_iPad.storyboard */,
-				CB43970C18B4A7C60053205D /* FirstViewController.h */,
-				CB43970D18B4A7C60053205D /* FirstViewController.m */,
-				CB43970F18B4A7C60053205D /* SecondViewController.h */,
-				CB43971018B4A7C60053205D /* SecondViewController.m */,
+				CB43970C18B4A7C60053205D /* MapViewController.h */,
+				CB43970D18B4A7C60053205D /* MapViewController.m */,
+				CB43976218B5C4D00053205D /* DetailViewController.h */,
+				CB43976318B5C4D00053205D /* DetailViewController.m */,
+				CBD36AD818CF78E400611E49 /* PhotoViewController.h */,
+				CBD36AD918CF78E400611E49 /* PhotoViewController.m */,
+				CB4C96B118E932D8006B4478 /* CalendarViewController.h */,
+				CB4C96B218E932D8006B4478 /* CalendarViewController.m */,
 				CB43971218B4A7C70053205D /* Images.xcassets */,
+				CB779D9418BD852800ED89BF /* Source */,
 				CB4396FB18B4A7C60053205D /* Supporting Files */,
 			);
 			path = PlanWithMap;
@@ -134,6 +231,7 @@
 		CB4396FB18B4A7C60053205D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB4C96DD18E93A72006B4478 /* images */,
 				CB4396FC18B4A7C60053205D /* PlanWithMap-Info.plist */,
 				CB4396FD18B4A7C60053205D /* InfoPlist.strings */,
 				CB43970018B4A7C60053205D /* main.m */,
@@ -158,6 +256,55 @@
 				CB43972218B4A7C70053205D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB4C96DD18E93A72006B4478 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CB4C96DE18E93B65006B4478 /* nextMonth.png */,
+				CB4C96DF18E93B65006B4478 /* previousMonth.png */,
+				CB4C96CB18E93A46006B4478 /* calendar-25.png */,
+				CB4C96CC18E93A46006B4478 /* map_marker-25.png */,
+				CB4C96CD18E93A46006B4478 /* picture-50.png */,
+				CB4C96CE18E93A46006B4478 /* pin_blue_icon.ico */,
+				CB4C96CF18E93A46006B4478 /* pin_blue.ico */,
+				CB4C96D018E93A46006B4478 /* pin_green.ico */,
+				CB4C96D118E93A46006B4478 /* pin_orange.ico */,
+				CB4C96D218E93A46006B4478 /* pin_purple.ico */,
+				CB4C96D318E93A46006B4478 /* pin_red.ico */,
+				CB4C96B718E93920006B4478 /* airport_icon.jpg */,
+				CB4C96B818E93920006B4478 /* bus_icon.jpg */,
+				CB4C96B918E93920006B4478 /* restaurant_icon.jpg */,
+				CB4C96BA18E93920006B4478 /* shop_icon.jpg */,
+				CB4C96BB18E93920006B4478 /* sight_icon.jpg */,
+				CB4C96BC18E93920006B4478 /* stay_icon.jpg */,
+				CB4C96BD18E93920006B4478 /* sun-red-circle.png */,
+				CB4C96BE18E93920006B4478 /* TacoMarker.png */,
+				CB4C96BF18E93920006B4478 /* train_icon.jpg */,
+				CB4C96C018E93920006B4478 /* userLocation_icon.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		CB779D9418BD852800ED89BF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CB43973318B4BFA20053205D /* myAnnotation.h */,
+				CB43973418B4BFA20053205D /* myAnnotation.m */,
+				CB43973618B4BFE10053205D /* myPinAnnotationView.h */,
+				CB43973718B4BFE10053205D /* myPinAnnotationView.m */,
+				CBE6C62618C5A5F100984AE7 /* PinAlbumCell.h */,
+				CBE6C62718C5A5F100984AE7 /* PinAlbumCell.m */,
+				CB4C96B418E9349C006B4478 /* myCalendarDayView.h */,
+				CB4C96B518E9349C006B4478 /* myCalendarDayView.m */,
+				CB914ED618E940EF00D3F91E /* AnnotationList.xcdatamodeld */,
+				CB46780A18D4AA140097BD33 /* AnnotationData.h */,
+				CB914EDA18E9422E00D3F91E /* AnnotationData.m */,
+				CB46780D18D4AA150097BD33 /* LocationImageData.h */,
+				CB914EDC18E9424000D3F91E /* LocationImageData.m */,
+			);
+			name = Source;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +351,7 @@
 		CB4396E918B4A7C60053205D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Christine;
 				TargetAttributes = {
 					CB43971718B4A7C70053205D = {
@@ -236,10 +383,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB43970B18B4A7C60053205D /* Main_iPad.storyboard in Resources */,
+				CB149CED18BC47BD00538F68 /* Main_iPhone.storyboard in Resources */,
+				CB4C96D818E93A46006B4478 /* pin_blue.ico in Resources */,
 				CB43971318B4A7C70053205D /* Images.xcassets in Resources */,
-				CB43970818B4A7C60053205D /* Main_iPhone.storyboard in Resources */,
+				CB4C96DB18E93A46006B4478 /* pin_purple.ico in Resources */,
+				CB4C96C418E93920006B4478 /* shop_icon.jpg in Resources */,
+				CB4C96C618E93920006B4478 /* stay_icon.jpg in Resources */,
+				CB4C96D518E93A46006B4478 /* map_marker-25.png in Resources */,
+				CB4C96E018E93B65006B4478 /* nextMonth.png in Resources */,
+				CB4C96D418E93A46006B4478 /* calendar-25.png in Resources */,
+				CB4C96C118E93920006B4478 /* airport_icon.jpg in Resources */,
+				CB4C96D718E93A46006B4478 /* pin_blue_icon.ico in Resources */,
+				CB4C96C518E93920006B4478 /* sight_icon.jpg in Resources */,
+				CB4C96C318E93920006B4478 /* restaurant_icon.jpg in Resources */,
 				CB4396FF18B4A7C60053205D /* InfoPlist.strings in Resources */,
+				CB4C96C218E93920006B4478 /* bus_icon.jpg in Resources */,
+				CB4C96D918E93A46006B4478 /* pin_green.ico in Resources */,
+				CB4C96C718E93920006B4478 /* sun-red-circle.png in Resources */,
+				CB4C96C918E93920006B4478 /* train_icon.jpg in Resources */,
+				CB4C96CA18E93920006B4478 /* userLocation_icon.png in Resources */,
+				CB4C96DA18E93A46006B4478 /* pin_orange.ico in Resources */,
+				CB4C96C818E93920006B4478 /* TacoMarker.png in Resources */,
+				CB4C96D618E93A46006B4478 /* picture-50.png in Resources */,
+				CB4C96DC18E93A46006B4478 /* pin_red.ico in Resources */,
+				CB4C96E118E93B65006B4478 /* previousMonth.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,10 +425,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB43971118B4A7C60053205D /* SecondViewController.m in Sources */,
+				CB43973818B4BFE10053205D /* myPinAnnotationView.m in Sources */,
+				CB4C96B618E9349C006B4478 /* myCalendarDayView.m in Sources */,
+				CB43973518B4BFA20053205D /* myAnnotation.m in Sources */,
 				CB43970518B4A7C60053205D /* AppDelegate.m in Sources */,
-				CB43970E18B4A7C60053205D /* FirstViewController.m in Sources */,
+				CB4C96B318E932D8006B4478 /* CalendarViewController.m in Sources */,
+				CB914EDD18E9424000D3F91E /* LocationImageData.m in Sources */,
+				CB43970E18B4A7C60053205D /* MapViewController.m in Sources */,
+				CB43976418B5C4D00053205D /* DetailViewController.m in Sources */,
+				CB914ED918E940EF00D3F91E /* AnnotationList.xcdatamodeld in Sources */,
+				CB914EDB18E9422E00D3F91E /* AnnotationData.m in Sources */,
 				CB43970118B4A7C60053205D /* main.m in Sources */,
+				CBE6C62818C5A5F100984AE7 /* PinAlbumCell.m in Sources */,
+				CBD36ADA18CF78E400611E49 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +499,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -363,7 +538,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -422,7 +596,6 @@
 		CB43972D18B4A7C70053205D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanWithMap.app/PlanWithMap";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -445,7 +618,6 @@
 		CB43972E18B4A7C70053205D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanWithMap.app/PlanWithMap";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -480,6 +652,7 @@
 				CB43972B18B4A7C70053205D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB43972C18B4A7C70053205D /* Build configuration list for PBXNativeTarget "PlanWithMapTests" */ = {
 			isa = XCConfigurationList;
@@ -488,8 +661,24 @@
 				CB43972E18B4A7C70053205D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB914ED618E940EF00D3F91E /* AnnotationList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB914ED718E940EF00D3F91E /* AnnotationList 2.xcdatamodel */,
+				CB914ED818E940EF00D3F91E /* AnnotationList.xcdatamodel */,
+			);
+			currentVersion = CB914ED718E940EF00D3F91E /* AnnotationList 2.xcdatamodel */;
+			name = AnnotationList.xcdatamodeld;
+			path = PlanWithMap/Source/CoreData/AnnotationList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CB4396E918B4A7C60053205D /* Project object */;
 }

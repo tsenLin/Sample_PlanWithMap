@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AnnotationData" representedClassName="AnnotationData" syncable="YES">
+        <attribute name="annotationType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationAddr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationImageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="own" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LocationImageData" inverseName="belongto" inverseEntity="LocationImageData" syncable="YES"/>
+    </entity>
+    <entity name="LocationImageData" representedClassName="LocationImageData" syncable="YES">
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnnotationData" inverseName="own" inverseEntity="AnnotationData" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AnnotationData" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="LocationImageData" positionX="0" positionY="0" width="128" height="75"/>
+    </elements>
+</model>
