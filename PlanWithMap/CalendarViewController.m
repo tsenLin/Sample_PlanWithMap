@@ -15,11 +15,8 @@
 
 - (void)perform
 {
-    
-    // our custom segue is being fired, push the map view controller
     CalendarViewController *sourceViewController = self.sourceViewController;
     DetailViewController *destinationViewController = self.destinationViewController;
-    //NSLog(@"perform~~~!!!!!!!!! from %@, to %@", sourceViewController, destinationViewController);
     
     [sourceViewController.navigationController pushViewController:destinationViewController animated:YES];
 }
@@ -386,7 +383,6 @@
         if ([dataDay isEqualToString:[NSString stringWithFormat:@"%02ld", (long)selectedDate.day]])
         {
             [scheduleOfDay addObject:annotationData];
-            //NSLog(@"scheduleOfDay %@, %@", annotationData.locationName, annotationData.date);
         }
     }
     

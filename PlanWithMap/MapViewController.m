@@ -93,13 +93,9 @@ enum {
         return;
     }
     
-    NSLog(@"result count: %lu", (unsigned long)[fetchResults count]);
     //[self DeleteAllAnnotationData:fetchResults];
     if ([fetchResults count] > 0)
     {
-        NSLog(@"test  %lu", (unsigned long)[fetchResults count]);
-        //[self DeleteAllAnnotationData:fetchResults];
-        //[self AddAnnotations];
         for (AnnotationData *annotationData in fetchResults)
         {
             [self loadOutAnnotations:annotationData];
@@ -209,7 +205,6 @@ enum {
                     address = [address substringToIndex:([address length] - 1)];
                 
                 [self.searchResult addObject:[self AddNewAnnotationToMap:item.placemark.location.coordinate.latitude andLongitude:item.placemark.location.coordinate.longitude andTitle:item.name andSubtitle:address andType:nonAddToDB]];
-                NSLog(@"search result %@", self.searchResult);
             }
             
         }
@@ -296,7 +291,7 @@ enum {
         newAnnotation.coordinate = mapView.userLocation.location.coordinate;
         newAnnotation.date = @"0000/00/00 XXX";
         newAnnotation.annotationType = myAnnotationTypeNonDecided;
-        NSLog(@"add userlocation %@", newAnnotation);
+    
         [mapView addAnnotation:newAnnotation];
         [self AddNewAnnotationToDB:newAnnotation];
         [self addToAnnotationTableList:newAnnotation];
@@ -528,13 +523,11 @@ enum {
 
 -(void)addToAnnotationTableList:(myAnnotation *)newAnnotation
 {
-    //NSLog(@"addToAnnotationTableList");
     NSString *dictKey = [[newAnnotation date] substringToIndex:14];
     
     NSMutableArray *tempArray;
     if ([tableSectionDist objectForKey:dictKey])
     {
-        //NSLog(@"addToAnnotationTableList exist date %@", dictKey);
         tempArray = (NSMutableArray *)[tableSectionDist objectForKey:dictKey];
         [tempArray addObject:newAnnotation];
         
@@ -549,7 +542,6 @@ enum {
     }
     else
     {
-        //NSLog(@"addToAnnotationTableList new date %@", dictKey);
         tempArray = [[NSMutableArray alloc] initWithObjects:newAnnotation, nil];
         [tableSectionDist setObject:tempArray forKey:dictKey];
         
@@ -564,14 +556,12 @@ enum {
 {
     NSString *dictKey = [[removedAnnotation date] substringToIndex:14];
     NSMutableArray *tempArray = [tableSectionDist objectForKey:dictKey];
-    //NSLog(@"remove from table %@, dictKey:%@, removedAnnotation:%@", tempArray, dictKey, removedAnnotation);
+    
     [tempArray removeObject:removedAnnotation];
-    //NSLog(@"remove done");
     
     if ([tempArray count] == 0)
     {
         [tableSectionDist removeObjectForKey:dictKey];
-        //NSLog(@"remove disct");
         
         [tableSectionOrder removeObject:dictKey];
         [tableSectionOrder sortUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -615,7 +605,7 @@ enum {
     
     myAnnotation *theAnnotation = [tempArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [theAnnotation title];
-    //NSLog(@"table %ld, %ld, %@", (long)indexPath.section, (long)indexPath.row, [theAnnotation date]);
+    
     if (![[theAnnotation date] isEqualToString:@"0000/00/00 XXX"])
         cell.detailTextLabel.text = [[theAnnotation date] substringFromIndex:15];
     else
@@ -631,7 +621,6 @@ enum {
         {
             [mapView setRegion:MKCoordinateRegionMake([annotation coordinate], MKCoordinateSpanMake(.01, .01)) animated:YES];
             [mapView selectAnnotation:annotation animated:YES];
-            //NSLog(@"didSelectRowAtIndexPath userlocation %@, %d", annotation, [annotation isKindOfClass:[MKUserLocation class]]);
             
         }
     }
@@ -706,13 +695,12 @@ enum {
         NSLog(@"[ERROR] COREDATA: Fetch update request raised an error - %@", [error description]);
         return;
     }
-    //NSLog(@"update success  %@", fetchAnnotation.locationName);
     
     fetchAnnotation.locationName = updatedAnnotation.title;
     fetchAnnotation.locationAddr = updatedAnnotation.subtitle;
     
     [managedObjectContext save:&error];
-    //NSLog(@"update success  %@", fetchAnnotation.locationName);
+    
     if (error)
     {
         NSLog(@"[ERROR] COREDATA: update raised an error - %@", [error description]);
