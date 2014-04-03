@@ -23,9 +23,11 @@
     myAnnotation *EdittedAnnotation;
     AnnotationData *dragedAnnotation;
     NSLocale *dateLocale;
+    BOOL searchButton;
 }
 
 @property (strong, nonatomic) IBOutlet MKLocalSearch *localSearch;
+@property (strong, nonatomic) IBOutlet UISearchBar *localSearchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *pinTableView;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -40,6 +42,8 @@
 - (IBAction)DeleteAnnotation:(id)sender;
 - (IBAction)AddAnnotation:(id)sender;
 - (IBAction)getUserLocatioin:(id)sender;
+- (IBAction)hideSearchBar:(id)sender;
+- (IBAction)showSearchBar:(id)sender;
 
 
 //-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;

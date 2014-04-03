@@ -49,6 +49,14 @@ enum {
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    self.localSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 65, 320, 44)];
+    [self.localSearchBar setDelegate:self];
+
+    addButton.hidden = NO;
+    [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
+    [addButton setTitle:@"" forState:UIControlStateNormal];
+    searchButton = YES;
+    
     if(EdittedAnnotation == nil)
     {
         mapView.showsUserLocation = NO;
@@ -128,9 +136,24 @@ enum {
 
 #pragma mark  SearchBar
 
+- (IBAction)hideSearchBar:(id)sender
+{
+    [self.localSearchBar removeFromSuperview];
+}
+
+- (IBAction)showSearchBar:(id)sender
+{
+    if (searchButton)
+    {
+        [self.view addSubview:self.localSearchBar];
+    }
+}
+
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     [searchBar resignFirstResponder];
+    [self.localSearchBar removeFromSuperview];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
@@ -141,6 +164,7 @@ enum {
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     [searchBar setShowsCancelButton:NO animated:YES];
+    [self.localSearchBar removeFromSuperview];
 }
 
 - (void)startSearch:(NSString *)searchString
@@ -250,6 +274,8 @@ enum {
         UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [servicesDisabledAlert show];
     }
+    
+    //[self.localSearchBar removeFromSuperview];
 }
 
 
@@ -274,31 +300,39 @@ enum {
 
 - (IBAction)AddAnnotation:(id)sender
 {
-    if (EdittedAnnotation != nil)
+    if (!searchButton)
     {
-        EdittedAnnotation.annotationType = myAnnotationTypeNonDecided;
-        [mapView removeAnnotation:EdittedAnnotation];
-        [mapView addAnnotation:EdittedAnnotation];
-        [self AddNewAnnotationToDB:EdittedAnnotation];
-        [self addToAnnotationTableList:EdittedAnnotation];
-        addButton.hidden = YES;
+        if (EdittedAnnotation != nil)
+        {
+            EdittedAnnotation.annotationType = myAnnotationTypeNonDecided;
+            [mapView removeAnnotation:EdittedAnnotation];
+            [mapView addAnnotation:EdittedAnnotation];
+            [self AddNewAnnotationToDB:EdittedAnnotation];
+            [self addToAnnotationTableList:EdittedAnnotation];
+            //addButton.hidden = YES;
+            [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
+            addButton.titleLabel.text = @"";
+        }
+        else
+        {
+            myAnnotation *newAnnotation = [[myAnnotation alloc] init];
+            newAnnotation.title = [mapView.userLocation title];
+            newAnnotation.subtitle = [mapView.userLocation subtitle];
+            newAnnotation.coordinate = mapView.userLocation.location.coordinate;
+            newAnnotation.date = @"0000/00/00 XXX";
+            newAnnotation.annotationType = myAnnotationTypeNonDecided;
+        
+            [mapView addAnnotation:newAnnotation];
+            [self AddNewAnnotationToDB:newAnnotation];
+            [self addToAnnotationTableList:newAnnotation];
+            //addButton.hidden = YES;
+            [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
+            addButton.titleLabel.text = @"";
+
+        }
+        
+        [pinTableView reloadData];
     }
-    else
-    {
-        myAnnotation *newAnnotation = [[myAnnotation alloc] init];
-        newAnnotation.title = [mapView.userLocation title];
-        newAnnotation.subtitle = [mapView.userLocation subtitle];
-        newAnnotation.coordinate = mapView.userLocation.location.coordinate;
-        newAnnotation.date = @"0000/00/00 XXX";
-        newAnnotation.annotationType = myAnnotationTypeNonDecided;
-    
-        [mapView addAnnotation:newAnnotation];
-        [self AddNewAnnotationToDB:newAnnotation];
-        [self addToAnnotationTableList:newAnnotation];
-        addButton.hidden = YES;
-    }
-    
-    [pinTableView reloadData];
 }
 
 
@@ -392,20 +426,37 @@ enum {
         EdittedAnnotation = (myAnnotation *)view.annotation;
         deleteButton.hidden = NO;
         if (EdittedAnnotation.annotationType == nonAddToDB)
-            addButton.hidden = NO;
+        {
+            //addButton.hidden = NO;
+            [addButton setImage:nil forState:UIControlStateNormal];
+            [addButton setTitle:@"Add" forState:UIControlStateNormal];
+            searchButton = NO;
+            NSLog(@"button image %@", addButton.imageView.image);
+
+        }
         else
+        {
             addButton.hidden = YES;
+        }
     }
     else
     {
         addButton.hidden = NO;
+        [addButton setImage:nil forState:UIControlStateNormal];
+        [addButton setTitle:@"Add" forState:UIControlStateNormal];
+        searchButton = NO;
+        NSLog(@"button image %@", addButton.imageView.image);
     }
 }
 
 -(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
     //EdittedAnnotation = nil;
-    addButton.hidden = YES;
+    addButton.hidden = NO;
+    [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
+    [addButton setTitle:@"" forState:UIControlStateNormal];
+    searchButton = YES;
+
     deleteButton.hidden = YES;
 }
 

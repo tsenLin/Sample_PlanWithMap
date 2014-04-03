@@ -56,6 +56,7 @@
 		CB914ED918E940EF00D3F91E /* AnnotationList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB914ED618E940EF00D3F91E /* AnnotationList.xcdatamodeld */; };
 		CB914EDB18E9422E00D3F91E /* AnnotationData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB914EDA18E9422E00D3F91E /* AnnotationData.m */; };
 		CB914EDD18E9424000D3F91E /* LocationImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB914EDC18E9424000D3F91E /* LocationImageData.m */; };
+		CB914EDF18EBB0C700D3F91E /* search-26.png in Resources */ = {isa = PBXBuildFile; fileRef = CB914EDE18EBB0C700D3F91E /* search-26.png */; };
 		CBD36ADA18CF78E400611E49 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD36AD918CF78E400611E49 /* PhotoViewController.m */; };
 		CBE6C62818C5A5F100984AE7 /* PinAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C62718C5A5F100984AE7 /* PinAlbumCell.m */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		CB914ED818E940EF00D3F91E /* AnnotationList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnnotationList.xcdatamodel; sourceTree = "<group>"; };
 		CB914EDA18E9422E00D3F91E /* AnnotationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationData.m; path = PlanWithMap/Source/CoreData/AnnotationData.m; sourceTree = "<group>"; };
 		CB914EDC18E9424000D3F91E /* LocationImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationImageData.m; path = PlanWithMap/Source/CoreData/LocationImageData.m; sourceTree = "<group>"; };
+		CB914EDE18EBB0C700D3F91E /* search-26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search-26.png"; path = "image/search-26.png"; sourceTree = "<group>"; };
 		CBD36AD818CF78E400611E49 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		CBD36AD918CF78E400611E49 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		CBE6C62618C5A5F100984AE7 /* PinAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinAlbumCell.h; path = PlanWithMap/Source/PinAlbumCell.h; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		CB4C96DD18E93A72006B4478 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CB914EDE18EBB0C700D3F91E /* search-26.png */,
 				CB4C96DE18E93B65006B4478 /* nextMonth.png */,
 				CB4C96DF18E93B65006B4478 /* previousMonth.png */,
 				CB4C96CB18E93A46006B4478 /* calendar-25.png */,
@@ -403,6 +406,7 @@
 				CB4C96C918E93920006B4478 /* train_icon.jpg in Resources */,
 				CB4C96CA18E93920006B4478 /* userLocation_icon.png in Resources */,
 				CB4C96DA18E93A46006B4478 /* pin_orange.ico in Resources */,
+				CB914EDF18EBB0C700D3F91E /* search-26.png in Resources */,
 				CB4C96C818E93920006B4478 /* TacoMarker.png in Resources */,
 				CB4C96D618E93A46006B4478 /* picture-50.png in Resources */,
 				CB4C96DC18E93A46006B4478 /* pin_red.ico in Resources */,
