@@ -43,7 +43,12 @@ enum {
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    
+    if (EdittedAnnotation != nil)
+    {
+        if (EdittedAnnotation.annotationType != nonAddToDB)
+            [self removeFromAnnotationTableList:EdittedAnnotation];
+        [self.mapView removeAnnotation:EdittedAnnotation];
+    }
 }
 
 
@@ -74,7 +79,9 @@ enum {
         [mapView addAnnotation:EdittedAnnotation];
         [self addToAnnotationTableList:EdittedAnnotation];
         
-        EdittedAnnotation = nil;
+        [mapView selectAnnotation:EdittedAnnotation animated:YES];
+        
+        //EdittedAnnotation = nil;
         
         [pinTableView reloadData];
         
@@ -108,8 +115,8 @@ enum {
         {
             [self loadOutAnnotations:annotationData];
         }
-        [self creatAnnotationTableList];
     }
+    [self creatAnnotationTableList];
 }
 
 
@@ -143,7 +150,8 @@ enum {
 
 - (IBAction)showSearchBar:(id)sender
 {
-    if (searchButton)
+    NSLog(@"showSearchBar bool %d", [addButton.titleLabel.text isEqualToString:@""]);
+    if (searchButton && EdittedAnnotation == nil)
     {
         [self.view addSubview:self.localSearchBar];
     }
@@ -294,7 +302,15 @@ enum {
         
         CLLocationCoordinate2D newPinCoordinate = [mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
         
-        [self AddNewAnnotationToMap:newPinCoordinate.latitude andLongitude:newPinCoordinate.longitude andTitle:@"newAnnotation" andSubtitle:nil andType:nonAddToDB];
+        myAnnotation *newAnnotation = [[myAnnotation alloc] initWithCoordinate:newPinCoordinate];
+        newAnnotation.title = @"newLocation";
+        [self getAddress:newAnnotation];
+        newAnnotation.date = @"0000/00/00 XXX";
+        newAnnotation.annotationType = nonAddToDB;
+        
+        [mapView addAnnotation:newAnnotation];
+        
+        //[self AddNewAnnotationToMap:newPinCoordinate.latitude andLongitude:newPinCoordinate.longitude andTitle:@"newAnnotation" andSubtitle:nil andType:nonAddToDB];
     }
 }
 
@@ -305,19 +321,23 @@ enum {
         if (EdittedAnnotation != nil)
         {
             EdittedAnnotation.annotationType = myAnnotationTypeNonDecided;
+            tempAnnotation = [[myAnnotation alloc] init];
+            tempAnnotation = EdittedAnnotation;
             [mapView removeAnnotation:EdittedAnnotation];
+            
+            EdittedAnnotation = tempAnnotation;
             [mapView addAnnotation:EdittedAnnotation];
             [self AddNewAnnotationToDB:EdittedAnnotation];
             [self addToAnnotationTableList:EdittedAnnotation];
             //addButton.hidden = YES;
             [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
-            addButton.titleLabel.text = @"";
+            [addButton setTitle:@"" forState:UIControlStateNormal];
         }
         else
         {
             myAnnotation *newAnnotation = [[myAnnotation alloc] init];
             newAnnotation.title = [mapView.userLocation title];
-            newAnnotation.subtitle = [mapView.userLocation subtitle];
+            [self getAddress:newAnnotation];
             newAnnotation.coordinate = mapView.userLocation.location.coordinate;
             newAnnotation.date = @"0000/00/00 XXX";
             newAnnotation.annotationType = myAnnotationTypeNonDecided;
@@ -327,11 +347,14 @@ enum {
             [self addToAnnotationTableList:newAnnotation];
             //addButton.hidden = YES;
             [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
-            addButton.titleLabel.text = @"";
+            [addButton setTitle:@"Add" forState:UIControlStateNormal];
+
+            [addButton setTitle:@"" forState:UIControlStateNormal];
 
         }
         
         [pinTableView reloadData];
+        NSLog(@"AddAnnotation reload tableView");
     }
 }
 
@@ -339,7 +362,6 @@ enum {
 
 - (IBAction)DeleteAnnotation:(id)sender
 {
-    [mapView removeAnnotation:EdittedAnnotation];
     if (EdittedAnnotation.annotationType != nonAddToDB)
     {
         [self removeFromAnnotationTableList:EdittedAnnotation];
@@ -347,6 +369,7 @@ enum {
         [self deleteAnnotationDetail:EdittedAnnotation];
         [pinTableView reloadData];
     }
+    [mapView removeAnnotation:EdittedAnnotation];
     EdittedAnnotation = nil;
     
 }
@@ -431,7 +454,7 @@ enum {
             [addButton setImage:nil forState:UIControlStateNormal];
             [addButton setTitle:@"Add" forState:UIControlStateNormal];
             searchButton = NO;
-            NSLog(@"button image %@", addButton.imageView.image);
+            //NSLog(@"button image %@", addButton.imageView.image);
 
         }
         else
@@ -445,13 +468,13 @@ enum {
         [addButton setImage:nil forState:UIControlStateNormal];
         [addButton setTitle:@"Add" forState:UIControlStateNormal];
         searchButton = NO;
-        NSLog(@"button image %@", addButton.imageView.image);
+        //NSLog(@"button image %@", addButton.imageView.image);
     }
 }
 
 -(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    //EdittedAnnotation = nil;
+    EdittedAnnotation = nil;
     addButton.hidden = NO;
     [addButton setImage:[UIImage imageNamed:@"search-26.png"] forState:UIControlStateNormal];
     [addButton setTitle:@"" forState:UIControlStateNormal];
@@ -468,14 +491,9 @@ enum {
     detailView.inputAnnotation = (myAnnotation *)view.annotation;
     EdittedAnnotation = (myAnnotation *)view.annotation;
     
-    [self.mapView removeAnnotation:EdittedAnnotation];
-    if (EdittedAnnotation.annotationType != nonAddToDB)
-        [self removeFromAnnotationTableList:EdittedAnnotation];
-    
     [self.navigationController pushViewController:detailView animated:YES];
     
     //[self addChildViewController:detailView]; //didn't work????
-    
 }
 
 
@@ -538,6 +556,22 @@ enum {
  //NSLog(@"mapview didUpdateUserLocation");
  }*/
 
+- (void)getAddress:(myAnnotation *)theAnnotation {
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:theAnnotation.coordinate.latitude longitude:theAnnotation.coordinate.longitude];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Finding address");
+        if (error) {
+            NSLog(@"Error %@", error.description);
+        } else {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            //NSLog(@"getAddress : %@", placemark.addressDictionary);
+            
+            theAnnotation.subtitle = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+        }
+    }];
+}
+
 
 #pragma mark pinTableView dataSource methods
 
@@ -548,26 +582,26 @@ enum {
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:&sorter count:1];
     sortedArray = [sortedArray sortedArrayUsingDescriptors:sortDescriptors];
     
-    tableSectionDist = [[NSMutableDictionary alloc] init];
+    tableSectionDict = [[NSMutableDictionary alloc] init];
     
     for (myAnnotation *annotation in sortedArray)
     {
         NSString *dateKey = [[annotation date] substringToIndex:14];
         
-        if ([tableSectionDist objectForKey:dateKey] != nil)
+        if ([tableSectionDict objectForKey:dateKey] != nil)
         {
-            NSMutableArray *dateArray = [tableSectionDist objectForKey:dateKey];
+            NSMutableArray *dateArray = [tableSectionDict objectForKey:dateKey];
             [dateArray addObject:annotation];
-            [tableSectionDist setObject:dateArray forKey:dateKey];
+            [tableSectionDict setObject:dateArray forKey:dateKey];
         }
         else
         {
             NSMutableArray *dateArray = [[NSMutableArray alloc] initWithObjects:annotation, nil];
-            [tableSectionDist setObject:dateArray forKey:dateKey];
+            [tableSectionDict setObject:dateArray forKey:dateKey];
         }
     }
     
-    tableSectionOrder = [[NSMutableArray alloc] initWithArray:[tableSectionDist allKeys]];
+    tableSectionOrder = [[NSMutableArray alloc] initWithArray:[tableSectionDict allKeys]];
     [tableSectionOrder sortUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
@@ -577,9 +611,9 @@ enum {
     NSString *dictKey = [[newAnnotation date] substringToIndex:14];
     
     NSMutableArray *tempArray;
-    if ([tableSectionDist objectForKey:dictKey])
+    if ([tableSectionDict objectForKey:dictKey])
     {
-        tempArray = (NSMutableArray *)[tableSectionDist objectForKey:dictKey];
+        tempArray = (NSMutableArray *)[tableSectionDict objectForKey:dictKey];
         [tempArray addObject:newAnnotation];
         
         if (![dictKey isEqualToString:@"0000/00/00 XXX"])
@@ -587,14 +621,14 @@ enum {
             NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
             NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sorter, nil];
             [tempArray sortUsingDescriptors:sortDescriptors];
-            [tableSectionDist setObject:tempArray forKey:dictKey];
+            [tableSectionDict setObject:tempArray forKey:dictKey];
         }
         
     }
     else
     {
         tempArray = [[NSMutableArray alloc] initWithObjects:newAnnotation, nil];
-        [tableSectionDist setObject:tempArray forKey:dictKey];
+        [tableSectionDict setObject:tempArray forKey:dictKey];
         
         [tableSectionOrder addObject:dictKey];
         [tableSectionOrder sortUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -606,13 +640,15 @@ enum {
 -(void)removeFromAnnotationTableList:(myAnnotation *)removedAnnotation
 {
     NSString *dictKey = [[removedAnnotation date] substringToIndex:14];
-    NSMutableArray *tempArray = [tableSectionDist objectForKey:dictKey];
+    NSMutableArray *tempArray = [tableSectionDict objectForKey:dictKey];
     
     [tempArray removeObject:removedAnnotation];
     
     if ([tempArray count] == 0)
     {
-        [tableSectionDist removeObjectForKey:dictKey];
+        NSLog(@"removeFromAnnotationTableList  removedAnnotation:%@ dictKey %@", removedAnnotation, dictKey);
+        [tableSectionDict removeObjectForKey:dictKey];
+        NSLog(@"removeFromAnnotationTableList  end ");
         
         [tableSectionOrder removeObject:dictKey];
         [tableSectionOrder sortUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -637,7 +673,7 @@ enum {
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableArray *tempArray = [tableSectionDist objectForKey:[tableSectionOrder objectAtIndex:section]];
+    NSMutableArray *tempArray = [tableSectionDict objectForKey:[tableSectionOrder objectAtIndex:section]];
     return [tempArray count];
 }
 
@@ -652,7 +688,7 @@ enum {
     }
     
     NSString *dictKey = [tableSectionOrder objectAtIndex:indexPath.section];
-    NSMutableArray *tempArray = [tableSectionDist objectForKey:dictKey];
+    NSMutableArray *tempArray = [tableSectionDict objectForKey:dictKey];
     
     myAnnotation *theAnnotation = [tempArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [theAnnotation title];

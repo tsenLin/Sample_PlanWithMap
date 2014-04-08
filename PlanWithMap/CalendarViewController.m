@@ -58,10 +58,9 @@
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self createDayViewsAndTable];
-    [self getScheduleInMonth];
-    [self getScheduleOnDay];
-    [self.scheduleTableView reloadData];
+    //[self getScheduleInMonth];
+    //[self getScheduleOnDay];
+    //[self.scheduleTableView reloadData];
     
     
     self.detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
@@ -80,6 +79,7 @@
 {
     [self getScheduleInMonth];
     [self getScheduleOnDay];
+    [self createDayViewsAndTable];
     [self.scheduleTableView reloadData];
 }
 
@@ -121,6 +121,8 @@
                 
                 dayView.day = day;
                 
+                dayView.hasSchedule = [self hasScheduleOnDay:day];
+                
                 [self.view addSubview:dayView];
                 
                 if (day.day == selectedDate.day)
@@ -151,6 +153,27 @@
     self.scheduleTableView.contentInset = UIEdgeInsetsZero;
     
     [self.view addSubview:self.scheduleTableView];
+}
+
+-(bool)hasScheduleOnDay:(NSDateComponents *)day
+{
+    NSString *dayViewDate = [[NSString alloc] init];
+
+    dayViewDate = [dayViewDate stringByAppendingString: [NSString stringWithFormat:@"%04d/%02d/%02d", (int)day.year, (int)day.month, (int)day.day ]] ;
+    
+    //NSLog(@"scheduleOfMonth:%@", scheduleOfMonth);
+    
+    for(AnnotationData *annotationData in scheduleOfMonth)
+    {
+        if ([[[annotationData date] substringToIndex:10] isEqualToString:dayViewDate])
+        {
+            return YES;
+        }
+
+    }
+    
+    return NO;
+
 }
 
 - (void)removeDayViewsAndTable

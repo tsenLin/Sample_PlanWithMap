@@ -10,7 +10,7 @@
 
 @implementation myCalendarDayView
 
-@synthesize day;
+@synthesize day, hasSchedule;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -38,7 +38,16 @@
     if (self.selected == NO)
     {
         [self setTitle:[NSString stringWithFormat:@"%ld", (long)self.day.day] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (hasSchedule == YES)
+        {
+            [self.titleLabel setFont:[UIFont boldSystemFontOfSize:20.0]];
+            [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.titleLabel setFont:[UIFont fontWithName:@"system" size: 12.0]];
+            [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        }
         
     }
     else if (self.selected == YES)
@@ -67,7 +76,18 @@
     self.selected = NO;
     
     [self setTitle:[NSString stringWithFormat:@"%ld", (long)self.day.day] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    //[self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    if (hasSchedule == YES)
+    {
+        [self.titleLabel setFont:[UIFont boldSystemFontOfSize:20.0]];
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.titleLabel setFont:[UIFont fontWithName:@"system" size: 12.0]];
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    }
     
     [self setBackgroundImage:nil forState:(UIControlStateSelected)];
     //NSLog(@"dayUNselected %u, seleted %hhd", self.state, self.selected);

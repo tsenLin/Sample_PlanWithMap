@@ -17,6 +17,7 @@
 @interface myCalendarDayView : UIButton
 
 @property (nonatomic, copy) NSDateComponents *day;
+@property (nonatomic) bool hasSchedule;
 
 - (void)daySelected;
 - (void)dayUnselected;

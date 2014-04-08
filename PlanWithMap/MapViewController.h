@@ -18,9 +18,9 @@
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UISearchBarDelegate>
 {
     NSManagedObjectContext *managedObjectContext;
-    NSMutableDictionary *tableSectionDist;
+    NSMutableDictionary *tableSectionDict;
     NSMutableArray *tableSectionOrder;
-    myAnnotation *EdittedAnnotation;
+    myAnnotation *tempAnnotation;
     AnnotationData *dragedAnnotation;
     NSLocale *dateLocale;
     BOOL searchButton;
@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic) myAnnotation *EdittedAnnotation;
+@property (nonatomic, strong) myAnnotation *EdittedAnnotation;
 @property (nonatomic, strong) NSArray *foundPlaces;
 @property (nonatomic, strong) NSMutableArray *searchResult;
 
